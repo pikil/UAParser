@@ -14,7 +14,7 @@ jobs:
     - dist: trusty
       php: 5.5
 
-before_script:
+install:
   - composer install --prefer-source
 
 script:
