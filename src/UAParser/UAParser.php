@@ -178,7 +178,7 @@ class UAParser implements UAParserInterface
         }
 
         foreach ($this->regexes['device_parsers'] as $expression) {
-            if (preg_match('/'.str_replace('/','\/',str_replace('\/','/', $expression['regex'])).'/i', $userAgent, $matches)) {
+            if (preg_match('/'.str_replace('/','\/',str_replace('\/','/', str_replace('-', '\-', $expression['regex']))).'/i', $userAgent, $matches)) {
                 if (!isset($matches[1])) { $matches[1] = 'Other'; }
                 if (!isset($matches[2])) { $matches[2] = null; }
                 if (!isset($matches[3])) { $matches[3] = null; }
